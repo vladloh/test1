@@ -11,7 +11,7 @@ def rnd(size):
 def test_1():
     autocompletor = Autocompletor()
     autocompletor.build_dictionary()
-    tokens = ["sister", "inclus", "ufck", "degen", "memas", "neigh"]
+    tokens = ["Sister", "Inclus", "Ufck", "Degen", "Memas", "neigh"]
     for _ in range(100):
         tokens.append(rnd(1))
 
