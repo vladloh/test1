@@ -3,8 +3,10 @@ from classes import Autocompletor
 import random
 import string
 
+
 def rnd(size):
     return ''.join(random.choice(string.ascii_letters) for _ in range(size))
+
 
 def test_1():
     autocompletor = Autocompletor()
@@ -26,4 +28,3 @@ def test_1():
         result = autocompletor.search_top_k_strings(word)
         expected_result = autocompletor.search_top_k_strings(word)
         assert result == expected_result
-    

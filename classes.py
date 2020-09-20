@@ -1,6 +1,6 @@
 import heapq
 from nltk import word_tokenize, pos_tag
-import tqdm
+
 
 class Node:
     def __init__(self):
@@ -42,7 +42,6 @@ class Node:
         self.sorted_subnodes = list(heapq.merge(*merging_lists))
 
 
-
 class PrefixTree:
     def __init__(self):
         self.root = Node()
@@ -61,12 +60,12 @@ class PrefixTree:
     def precalc_sorted(self):
         self.root.precalc_sorted_subnodes()
 
-
     def find_vertex(self, word):
         vertex = self.root
         for i in range(len(word)):
             vertex = vertex.get_child(word[i])
-            if not vertex: break
+            if not vertex: 
+                break
         return vertex
 
     def count_word(self, word):
@@ -102,7 +101,6 @@ class Autocompletor:
         self.tree.add_dictionary(self.dictionary)
         self.tree.precalc_sorted()
 
-
     def search_top_k_strings(self, prefix, k=10):
         vertex = self.tree.find_vertex(prefix.lower())
         if vertex is None:
@@ -119,10 +117,10 @@ class Autocompletor:
         return good[:k]
 
 
-
 if __name__ == "__main__":
     ac = Autocompletor()
     ac.build_dictionary()
+    print("you can start typing")
     while True:
         s = input()
         res1 = ac.search_top_k_strings(s)
